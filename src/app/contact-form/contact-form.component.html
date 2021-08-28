@@ -1,0 +1,64 @@
+<h2>Formulaire contact</h2>
+
+<form [formGroup]="profileForm">
+    <div >
+        <mat-form-field appearance="fill">
+            <mat-label for="first-name">First Name: </mat-label>
+            <input matInput type="text" formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label for="last-name">Last Name: </mat-label>
+            <input matInput type="text" formControlName="lastName">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label for="birthday">Choose a date</mat-label>
+            <!-- #docregion toggle -->
+            <input matInput [matDatepicker]="picker" formControlName="birthday">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <!-- #enddocregion toggle -->
+        </mat-form-field>
+
+        <div formArrayName="addresses">
+            <h2>Adresses</h2>
+            <div *ngFor="let adress of addresses.controls; let i=index">
+                <!-- The repeated alias template -->
+                <div [formGroupName]="i">
+                    adresse {{ i + 1}} :
+                    <mat-form-field appearance="fill">
+                        <mat-label for="type">Type d'adresse: </mat-label>
+                        <input matInput type="text" formControlName="type">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label for="rue">Rue: </mat-label>
+                        <input matInput type="text" formControlName="rue">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label for="numero">Numero: </mat-label>
+                        <input matInput type="text" formControlName="numero">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label for="cp">Code Postal: </mat-label>
+                        <input matInput type="text" formControlName="cp">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label for="ville">Ville: </mat-label>
+                        <input matInput type="text" formControlName="ville">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label for="pays">Pays: </mat-label>
+                        <input matInput type="text" formControlName="pays">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label for="commentaire">Commentaire: </mat-label>
+                        <input matInput type="text" formControlName="commentaire">
+                    </mat-form-field>
+                </div>
+            </div>
+            <button (click)="addAddress()">+ Add another address</button>
+        </div>
+    </div>
+    <button routerLinkActive="active" routerLink="/list"  mat-raised-button color="primary" type="submit" (click)="saveContact()">Enregistrer contact</button>
+
+</form>
