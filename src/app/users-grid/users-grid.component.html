@@ -1,0 +1,10 @@
+
+<h2>Contact List</h2>
+<div class="container">
+    <ag-grid-angular overflow-y="scroll" class="comp1" style="width: 500px; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
+        [columnDefs]="columnDefs" (gridReady)="onGridReady($event)" [frameworkComponents]="frameworkComponents">
+    </ag-grid-angular>
+</div>
+
+
+<a routerLink="../contactForm"><button routerLinkActive="active" >add new Contact</button></a>

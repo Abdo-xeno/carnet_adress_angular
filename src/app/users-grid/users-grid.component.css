@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.comp2 {
+        border-collapse: separate;
+        border-spacing: 50px 0;
+        padding:50px;
+        margin-right: 5px;
+        margin-right:10px;
+      
+          height: 500px;       /* Just for the demo          */
+          overflow-y: auto;    /* Trigger vertical scroll    */
+          overflow-x: hidden;  /* Hide the horizontal scroll */
+          
+     
+        
+
+  }
+.comp1{
+    overflow-y: hidden;
+    height: auto !important;
+}
+
+
+  button {
+    background-color: #D3D3D3;
+    color: black;
+    border: none;
+    padding: 10px 10px;
+    text-align: center;
+    margin: 1px 10px;
+  }
+
