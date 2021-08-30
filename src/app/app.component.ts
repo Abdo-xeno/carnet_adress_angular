@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppareilService } from './services/appareil.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,27 +13,10 @@ export class AppComponent implements OnInit {
 
  
 
-  constructor(private appareilService:AppareilService){
-    setTimeout(
-      ()=>{
-        this.isAuth = true;
-      },4000
-    )
-
-    }
-    
-    onAllumer(){
-      this.appareilService.switchOnAll();
-    }
-
-    onEteindre(){
-      {
-      this.appareilService.switchOffAll();
-    } 
+  constructor(){
     }
 
   ngOnInit(){
-    this.appareils = this.appareilService.appareils;
   }
 }
 

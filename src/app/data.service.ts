@@ -27,27 +27,28 @@ export class DataService implements InMemoryDbService {
       contacts: [
         {
           
-          firstName: 'Seaman Cap',
-          lastName: 'Lorem ipsum . Voluptatem excepturi magnam nostrum dolore recusandae',
+          firstName: 'Sam',
+          lastName: 'Torat',
           id: 1,
-          birthDay:'12/01/2005',
-          addresses:'Adresse principale: paris,boulevard de la etc..,Adresse secondaire 2 : hahahahaXDDD'
+          birthDay:'17/05/2005',
+          addresses:[{type: 'principale',  numero:'95',rue:'avenue de Caen',ville:'Rouen',cp:'76100',pays:'France',numéroTel:'0787594163',commentaire:'disponible entre 8h et 18h'}]
         },
         {
           
-          firstName: 'T-shirt',
-          lastName: 'Adresse principale: amet consectetur adipisicing elit.Lorem ipsum dolor sit ',
+          firstName: 'Pauline',
+          lastName: 'Fredo ',
           id: 2,
-          birthDay:'05/01/1985',
-          addresses:'casablanca,965,boulevard,etc'
+          birthDay:'28/11/1995',
+          addresses:[{type: 'principale',  numero:'14',rue:'boulevard Anfa',ville:'Casablanca',cp:'20100',pays:'Maroc',numéroTel:'0698041524',commentaire:'toujours disponible'}]
         },
         {
         
-          firstName: 'Back Pack',
-          lastName: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
+          firstName: 'Jean-Pierre',
+          lastName: 'Macagno',
           id: 3,
-          birthDay:'17/03/1996',
-          addresses:[{type: 'principale',  street:'rgfdgfds'}, {type:'travail'}]
+          birthDay:'03/05/1985',
+          addresses:[{type: 'principale',  numero:'15',rue:'ernest Renan',ville:'bordeaux',cp:'36100',pays:'France',numéroTel:'0714265387',commentaire:'contacter à partir de 14h'},
+                     {type: 'travail',  numero:'20',rue:'mestre',ville:'bordeaux',cp:'36000',pays:'France',numéroTel:'0712786345',commentaire:'disponible entre 8h et 18h'}]
         }
       ]
     };
