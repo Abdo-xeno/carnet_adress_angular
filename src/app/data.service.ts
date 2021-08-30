@@ -49,7 +49,23 @@ export class DataService implements InMemoryDbService {
           birthDay:'03/05/1985',
           addresses:[{type: 'principale',  numero:'15',rue:'ernest Renan',ville:'bordeaux',cp:'36100',pays:'France',numéroTel:'0714265387',commentaire:'contacter à partir de 14h'},
                      {type: 'travail',  numero:'20',rue:'mestre',ville:'bordeaux',cp:'36000',pays:'France',numéroTel:'0712786345',commentaire:'disponible entre 8h et 18h'}]
-        }
+        },
+        {
+          
+          firstName: 'Logan',
+          lastName: 'Terry ',
+          id: 4,
+          birthDay:'21/06/1982',
+          addresses:[{type: 'principale',  numero:'15',rue:'boulevard Ain Diab',ville:'Tanger',cp:'90000',pays:'Maroc',numéroTel:'0632678945',commentaire:'toujours disponible'}]
+        },
+        {
+          
+          firstName: 'Alexandre',
+          lastName: 'Legrand ',
+          id: 2,
+          birthDay:'03/10/1991',
+          addresses:[{type: 'principale',  numero:'03',rue:'hotel dieu',ville:'argenteuil',cp:'95100',pays:'France',numéroTel:'0752416987',commentaire:'toujours disponible'}]
+        },
       ]
     };
   }
