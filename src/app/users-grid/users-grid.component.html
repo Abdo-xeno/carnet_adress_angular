@@ -1,10 +1,14 @@
+<h1>Contacts List</h1>
 
-<h2>Contact List</h2>
-<div class="container">
-    <ag-grid-angular overflow-y="scroll" class="comp1" style="width: 500px; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
-        [columnDefs]="columnDefs" (gridReady)="onGridReady($event)" [frameworkComponents]="frameworkComponents">
-    </ag-grid-angular>
+<div class= container>
+    
+<ag-grid-angular style="width:400%; height: 100%;" overflow-y="scroll"  style="width: 1045px; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
+    [columnDefs]="columnDefs" (gridReady)="onGridReady($event)" [frameworkComponents]="frameworkComponents" [rowHeight]="50">
+</ag-grid-angular>
+
+
+<a routerLink="../contactForm"><button mat-raised-button color="primary" routerLinkActive="active" >add new Contact</button></a>
+
+
+
 </div>
-
-
-<a routerLink="../contactForm"><button routerLinkActive="active" >add new Contact</button></a>

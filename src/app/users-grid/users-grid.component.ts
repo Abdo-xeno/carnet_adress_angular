@@ -1,11 +1,6 @@
 import { Component,Input, OnInit } from '@angular/core';
 import { ContactApp, DataService } from '../data.service';
 import { ContactAppService } from "../contact-app.service";
-
-
-import { FormGroup, FormControl } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { FormArray } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BtnCellRenderer } from '../button-update/button-update.component';
 import { ButtonDeleteComponent } from '../button-delete/button-delete.component';
@@ -34,7 +29,14 @@ export class UsersGridComponent implements OnInit {
       this.contacts = contacts
       this.rowData = contacts.map(contact => {
         let addressBase = contact.addresses[0] 
-        let addressToAppend = `${addressBase.type} : ${addressBase.numero} ${addressBase.rue}, ${addressBase.ville}, ${addressBase.cp}, ${addressBase.pays} `
+        // Display contact addresses with this format in the grid
+        let addressToAppend = `${addressBase.type} : ${addressBase.numero} ${addressBase.rue},
+                               ${addressBase.ville},
+                               ${addressBase.cp}, 
+                               ${addressBase.pays},
+                               ${addressBase.numéroTel},
+                               ${addressBase.commentaire} `
+        let birthDayToAppend=contact.birthDay.substring(0,10)
         let rowToAppend = {
           id: contact.id,
           Prenom: contact.firstName,
@@ -48,20 +50,24 @@ export class UsersGridComponent implements OnInit {
   }
 
   columnDefs = [
-    { field: 'Prenom',width:150 },
-    { field: 'Nom' },
-    { field: 'Date de naissance',width:120},
-    { field:'Adresse',resizable:true},
+    { field: 'Prenom',width:120 },
+    { field: 'Nom',width:120},
+    { field: 'Date de naissance',width:150,},
+    { field:'Adresse',resizable:true,width:470},
+    // display the update button on the grid
     {
       field: '',
       cellRenderer: 'btnCellRenderer',
+      width:80,
       cellRendererParams: {
         
       }
     },
+    // display the delete button on the grid
     {
       field: '',
       cellRenderer: 'btnCellDelete',
+      width:100,
       cellRendererParams: {
         updateContactList: this.getContacts
       }
@@ -70,6 +76,7 @@ export class UsersGridComponent implements OnInit {
     
   ];
   
+  // add the delete and update buttons to the grid
   frameworkComponents = {
     btnCellRenderer: BtnCellRenderer,
     btnCellDelete:ButtonDeleteComponent
