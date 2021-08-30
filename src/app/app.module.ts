@@ -56,7 +56,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatNativeDateModule,
     AgGridModule.withComponents([BtnCellRenderer]),
-    environment.production ?[]: HttpClientInMemoryWebApiModule.forRoot(DataService),
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     MatButtonModule,
