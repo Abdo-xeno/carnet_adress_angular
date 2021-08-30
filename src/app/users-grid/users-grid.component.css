@@ -1,14 +1,11 @@
-h1 {
-  display: block;
-  font-size: 1.8em;
-  margin: 40px  450px;
-  padding: 10px  30px;
-  font-weight: bold;
- 
+
+mat-toolbar {
+  font-size: 1.5em;
+  margin: auto;
 }
 
 button{
-  margin: 40px  460px;
-  padding: 10px  30px;
+  margin: 1% auto;
+  display: block;
   
 }

@@ -1,14 +1,12 @@
-<h1>Contacts List</h1>
-
-<div class= container>
-    
-<ag-grid-angular style="width:400%; height: 100%;" overflow-y="scroll"  style="width: 1045px; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
-    [columnDefs]="columnDefs" (gridReady)="onGridReady($event)" [frameworkComponents]="frameworkComponents" [rowHeight]="50">
-</ag-grid-angular>
-
-
-<a routerLink="../contactForm"><button mat-raised-button color="primary" routerLinkActive="active" >add new Contact</button></a>
-
-
+<mat-toolbar color="primary">
+    <span>Liste des contacts</span>
+</mat-toolbar>
+<div class=container>
+    <ag-grid-angular overflow-y="scroll" style="width: 92%; height:50rem;margin:3%" class="ag-theme-alpine"
+        [rowData]="rowData" [columnDefs]="columnDefs" (gridReady)="onGridReady($event)"
+        [frameworkComponents]="frameworkComponents" [rowHeight]="50">
+    </ag-grid-angular>
+    <a routerLink="../contactForm"><button mat-raised-button color="primary" routerLinkActive="active">Ajouter un nouveau contact</button></a>
 
 </div>
+

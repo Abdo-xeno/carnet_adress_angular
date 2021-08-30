@@ -1,8 +1,13 @@
-<h1>Formulaire contact</h1>
+<mat-toolbar color="primary">
+    <span>Formulaire contact</span>
+</mat-toolbar>
 
-<form [formGroup]="profileForm" class="myForm" >
-    <div classe="xd">
-        <mat-form-field appearance="fill" >
+<div class="formContainer">
+    <form [formGroup]="profileForm" class="myForm">
+
+        <h1>Informations personnelles</h1>
+        <mat-divider></mat-divider>
+        <mat-form-field appearance="fill">
             <mat-label for="first-name">Prénom: </mat-label>
             <input matInput type="text" formControlName="firstName" required>
         </mat-form-field>
@@ -14,61 +19,75 @@
         <mat-form-field appearance="fill">
             <mat-label for="birthDay">Date de naissance</mat-label>
             <!-- #docregion toggle -->
-            <input matInput [matDatepicker]="picker" formControlName="birthDay" [max]="maxDate" format="DD/MM/YYYY" required>
+            <input matInput [matDatepicker]="picker" formControlName="birthDay" [max]="maxDate" format="DD/MM/YYYY"
+                required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <!-- #enddocregion toggle -->
         </mat-form-field>
 
         <div formArrayName="addresses">
-            <h2>Adresses</h2>
+            <h1>Adresses</h1>
             <div *ngFor="let adress of addresses.controls; let i=index">
                 <!-- The repeated alias template -->
                 <div [formGroupName]="i">
-                    adresse {{ i + 1}} :
-                    <mat-form-field appearance="fill">
-                        <mat-label for="type">Type d'adresse: </mat-label>
-                        <input matInput type="text" formControlName="type" required>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label for="rue">Rue: </mat-label>
-                        <input matInput type="text" formControlName="rue" required >
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label for="numero">Numero: </mat-label>
-                        <input matInput type="number" formControlName="numero" required max="999" #rue>
-                        <mat-hint align="end">{{rue.value.length}} / 3</mat-hint>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label for="cp">Code Postal: </mat-label>
-                        <input matInput type="number" formControlName="cp" required  #postalCode  max="99999">
-                        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label for="ville">Ville: </mat-label>
-                        <input matInput type="text" formControlName="ville" required >
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label for="pays">Pays: </mat-label>
-                        <input matInput type="text" formControlName="pays" required>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label for="numéroTel">Numéro de téléphone </mat-label>
-                        <input matInput type="number" formControlName="numéroTel" required max="9999999999999" min="100000000" #numTel>
-                        <mat-hint align="end">{{numTel.value.length}} / 13</mat-hint>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label for="commentaire">Commentaire: </mat-label>
-                        <input matInput type="text" formControlName="commentaire" required>
-                    </mat-form-field>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Adresse {{ i + 1}}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Ajouter votre adresse {{i+1}}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <mat-divider></mat-divider>
+                        <mat-form-field appearance="fill">
+                            <mat-label for="type">Type d'adresse: </mat-label>
+                            <input matInput type="text" formControlName="type" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label for="rue">Rue: </mat-label>
+                            <input matInput type="text" formControlName="rue" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label for="numero">Numero: </mat-label>
+                            <input matInput type="number" formControlName="numero" required max="999" #rue>
+                            <mat-hint align="end">{{rue.value.length}} / 3</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label for="cp">Code Postal: </mat-label>
+                            <input matInput type="number" formControlName="cp" required #postalCode max="99999">
+                            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label for="ville">Ville: </mat-label>
+                            <input matInput type="text" formControlName="ville" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label for="pays">Pays: </mat-label>
+                            <input matInput type="text" formControlName="pays" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label for="numéroTel">Numéro de téléphone </mat-label>
+                            <input matInput type="number" formControlName="numéroTel" required max="9999999999999"
+                                min="100000000" #numTel>
+                            <mat-hint align="end">{{numTel.value.length}} / 13</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="comment">
+                            <mat-label for="commentaire">Commentaire: </mat-label>
+                            <input matInput type="text" formControlName="commentaire">
+                        </mat-form-field>
+                    </mat-expansion-panel>
                 </div>
             </div>
-            <button mat-raised-button color="accent"(click)="addAddress()">+ Add another address</button>
-        </div>
-    </div>
-</form>
-<div *ngIf="profileForm.errors?.addressKeys" class="cross-validation-error-message alert alert-danger">
-    Le type des adresses doit être clé unique.
-</div>
-<button mat-raised-button class="addContact" [disabled]="!uniqueKeys || profileForm.invalid "     routerLinkActive="active" routerLink="/list"   color="primary" type="submit" (click)="saveContact()">Enregistrer contact</button>
+            <button mat-raised-button color="accent" (click)="addAddress()">+ Ajouter une addresse</button>
 
+        </div>
+    </form>
+    <div *ngIf="profileForm.errors?.addressKeys" class="cross-validation-error-message alert alert-danger" width="10px">
+        Le type des adresses doit être une clé unique.
+    </div>
+    <button mat-raised-button class="addContact" [disabled]="profileForm.invalid " routerLinkActive="active"
+        routerLink="/" color="primary" type="submit" (click)="saveContact()">Enregistrer contact</button>
+</div>

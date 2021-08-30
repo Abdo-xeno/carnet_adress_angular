@@ -1,24 +1,44 @@
 
-h1 {
-    display: block;
+mat-toolbar {
     font-size: 1.5em;
-    margin: 30px  440px;
-    padding: 10px  30px;
-    font-weight: bold 
+    margin: auto;
 }
 .addContact{
-        margin: 10px  490px;
-        padding: 10px  30px;   
+    width:100%;
+    margin-top:3%
+}
+button {
+    margin: 1% auto;
+    display: block;
 }
 mat-form-field {
-    width: 180px;
-    padding-right: 8px;
-    margin-right: 10px
+    width: 100%
+}
+.formContainer{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+}
+input{
+    width: 100%
 }
 .myForm{
-    min-width: 150px;
-    max-width: 500px;
+    min-width: 2rem;
     width: 100%;
-    margin: 20px  330px;
-    padding: 10px  30px;
 }
+
+.alert{
+    margin:auto;
+    width: fit-content;
+}
+
+ 
+ .mat-expansion-panel-header-title .mat-expansion-panel-header-description {
+    flex-basis: 0;
+  }
+  
+.mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+  }
+  

@@ -21,10 +21,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { ButtonDeleteComponent } from './button-delete/button-delete.component';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 const appRoutes: Routes = [
   { path: 'contactForm', component: ContactFormComponent },
-  { path: 'list', component: UsersGridComponent },
+  { path: '', component: UsersGridComponent },
   { path: 'contactForm/:id', component: ContactFormComponent  },
   
 ];
@@ -55,7 +60,11 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatDividerModule,
+    MatExpansionModule
   ],
   exports:[ContactFormComponent],
   providers: [
